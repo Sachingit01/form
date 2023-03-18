@@ -16,19 +16,18 @@ function Form() {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    try {
-      const res = await axios.post("http://localhost:8007/Base", { data });
-      console.log(res.data);
-    } catch (e) {
-      alert(e);
-      console.log(e);
-    }
+    const res = await axios.post(
+      "https://formdata-ea0fb-default-rtdb.firebaseio.com/.json",
+      {
+        body: JSON.stringify(data),
 
-    alert(JSON.stringify(data));
+        headers: {
+          "content-Type": "application/json",
+        },
+      }
+    );
     console.log(data);
   };
-
-  console.log(errors);
 
   return (
     <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
