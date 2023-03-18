@@ -10,24 +10,24 @@ mongoose
 const NewSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
+    // required: true,
   },
-  LastName: {
+  lastName: {
     type: String,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
   },
-  gender: {
-    type: Boolean,
-    required: true,
-  },
-  feedback: {
-    type: String,
-    required: true,
-  },
+  // gender: {
+  //   type: Boolean,
+  //   required: true,
+  // },
+  // feedback: {
+  //   type: String,
+  //   required: true,
+  // },
 });
 
 const collection = new mongoose.model("store", NewSchema);
