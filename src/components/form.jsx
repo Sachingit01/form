@@ -5,7 +5,11 @@ import { useForm } from "react-hook-form";
 // import { useRefs } from "react";
 import axios from "axios";
 import "./form.css";
+
 function Form() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const {
     register,
     handleSubmit,
@@ -16,17 +20,19 @@ function Form() {
   const onSubmit = async (data, e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8007/Base", { data });
+      const res = await axios.post("http://localhost:8007/Base", {
+        firstName,
+        lastName,
+        email,
+      });
       console.log(res.data);
     } catch (e) {
       alert(e);
       console.log(e);
     }
-
     alert(JSON.stringify(data));
     console.log(data);
   };
-
   console.log(errors);
 
   return (
@@ -40,25 +46,44 @@ function Form() {
         </div>
       })} */}
       <label>First name</label>
-      <input type="text" {...register("firstName", { required: true })} />
+      <input
+        type="text"
+        {...register("firstName", { required: true })}
+        onChange={(e) => {
+          setFirstName(e.target.value);
+        }}
+      />
       {errors.firstName && <p>This is required</p>}
 
       <label>Last name</label>
-      <input type="text" {...register("lastName", { required: true })} />
+      <input
+        type="text"
+        {...register("lastName", { required: true })}
+        onChange={(e) => {
+          setLastName(e.target.value);
+        }}
+      />
       {errors.lastName && <p>This is required</p>}
 
       <label>Email</label>
-      <input type="email" {...register("email", { required: true })} />
+      <input
+        type="email"
+        {...register("email", { required: true })}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
       {errors.email && <p>This is required</p>}
 
       <input type="submit" />
       <input
         style={{ display: "block", marginTop: 20 }}
         type="reset"
-        value=" reset "
+        value="reset "
       />
     </form>
   );
 }
 
 export default Form;
+//pushparaj or vadhiraj

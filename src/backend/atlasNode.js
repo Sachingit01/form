@@ -12,9 +12,9 @@ app.use(express.static("public"));
 app.use(cors({ origin: "*" }));
 
 const mongoose = require("mongoose").MongoClient;
-let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority";
+let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/Data";
 
-app.get("/Data", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const result = await collections.find();
     console.log("output", result);
@@ -25,7 +25,7 @@ app.get("/Data", async (req, res) => {
   }
 });
 
-// app.get("/Base", cors(), (req, res) => {});
+app.get("/Base", cors(), (req, res) => {});
 
 app.post("/Data", async (req, res) => {
   try {

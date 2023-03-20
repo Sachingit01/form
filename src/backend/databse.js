@@ -30,6 +30,6 @@ const NewSchema = new mongoose.Schema({
   // },
 });
 
-const collection = new mongoose.model("store", NewSchema);
+const store = new mongoose.model("store", NewSchema);
 
-module.exports = collection;
+module.exports = store;
