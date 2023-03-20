@@ -1,5 +1,6 @@
 import Form from "./components/form";
 import FireBase from "./components/firebase";
+import Atlas from "./components/atlas";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Form />
       {/* <FireBase/> */}
+      {/* <Atlas/> */}
     </div>
   );
 }

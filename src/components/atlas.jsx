@@ -15,19 +15,19 @@ function Form() {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:8007/Base", { data });
-      console.log(res.data);
-    } catch (e) {
-      alert(e);
-      console.log(e);
-    }
 
-    alert(JSON.stringify(data));
+    const res = await axios.post(
+      "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/data",
+      {
+        body: JSON.stringify(data),
+
+        headers: {
+          "content-Type": "application/json",
+        },
+      }
+    );
     console.log(data);
   };
-
-  console.log(errors);
 
   return (
     <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
@@ -40,7 +40,7 @@ function Form() {
         </div>
       })} */}
       <label>First name</label>
-      <input type="text" {...register("firstName", { required: true })} />
+      <input type="text" {...register("firstName", { required: "true" })} />
       {errors.firstName && <p>This is required</p>}
 
       <label>Last name</label>
@@ -48,9 +48,8 @@ function Form() {
       {errors.lastName && <p>This is required</p>}
 
       <label>Email</label>
-      <input type="email" {...register("email", { required: true })} />
-      {errors.email && <p>This is required</p>}
-
+      <input type="email" {...register("Email", { required: true })} />
+      {errors.Email && <p>This is required</p>}
       <input type="submit" />
       <input
         style={{ display: "block", marginTop: 20 }}

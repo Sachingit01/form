@@ -12,11 +12,11 @@ app.use(express.static("public"));
 app.use(cors({ origin: "*" }));
 
 const mongoose = require("mongoose").MongoClient;
-let url = "mongodb://localhost:27017/Base";
+let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority";
 
-app.get("/Base", async (req, res) => {
+app.get("/data", async (req, res) => {
   try {
-    const result = await store.find();
+    const result = await collections.find();
     console.log("output", result);
     res.send(result);
   } catch (error) {
@@ -27,11 +27,11 @@ app.get("/Base", async (req, res) => {
 
 // app.get("/Base", cors(), (req, res) => {});
 
-app.post("/Base", async (req, res) => {
+app.post("/data", async (req, res) => {
   try {
     const result = req.body;
     console.log("post result", result);
-    await store.insertMany(result);
+    await collections.insertMany(result);
     res.send("data stored");
   } catch (error) {
     res.send("data not stored");
