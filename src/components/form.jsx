@@ -57,7 +57,7 @@ function Form() {
       <input
         style={{ display: "block", marginTop: 20 }}
         type="reset"
-        value=" Reset "
+        value=" reset "
       />
     </form>
   );

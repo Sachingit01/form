@@ -1,5 +1,5 @@
 const express = require("express");
-const store = require("./databse1.js");
+const store = require("./databse.js");
 
 const bodyParser = require("body-parser");
 const axios = require("axios");
@@ -16,9 +16,15 @@ const mongoose = require("mongoose").MongoClient;
 let url = "mongodb://localhost:27017/Base";
 
 app.get("/Base",async (req, res) => {
-  const result = await store.find();
-  console.log("output", result);
-  res.send(result);
+  try{
+  const result = await store.find()
+  console.log("output", result)
+  res.send(result)
+  }
+  catch(error){
+    res.send("get error");
+    console.log(error);
+  }
 }); 
 
 // app.get("/Base", cors(), (req, res) => {});
@@ -27,8 +33,9 @@ app.post("/Base", async (req, res) => {
   try {
     const result = req.body;
     console.log("post result", result);
-    await store.insertMany(result);
+    await store.insertMany(result)
     res.send("data stored")
+    // console.log("abc",result);
   } catch (error) {
     res.send("data not stored");
     console.log(error);

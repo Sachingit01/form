@@ -1,4 +1,4 @@
-import Form from "./components/form1";
+import Form from "./components/form";
 import FireBase from "./components/firebase";
 import "./App.css";
 
