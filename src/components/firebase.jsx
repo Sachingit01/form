@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
-import { string } from "yup";
-import { useRefs } from "react";
+// import { string } from "yup";
+// import { useRefs } from "react";
 import axios from "axios";
 import "./form.css";
 function Form() {
@@ -54,7 +54,7 @@ function Form() {
       <input
         style={{ display: "block", marginTop: 20 }}
         type="reset"
-        value=" Reset "
+        value=" reset "
       />
     </form>
   );

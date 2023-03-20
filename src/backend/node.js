@@ -24,10 +24,6 @@ app.get("/Base", async (req, res) => {
     res.send("get error");
     console.log(error);
   }
-
-  const result = await store.find();
-  console.log("output", result);
-  res.send(result);
 });
 
 // app.get("/Base", cors(), (req, res) => {});
@@ -36,10 +32,6 @@ app.post("/Base", async (req, res) => {
   try {
     const result = req.body;
     console.log("post result", result);
-
-    await store.insertMany(result);
-    res.send("data stored");
-
     await store.insertMany(result);
     res.send("data stored");
   } catch (error) {
