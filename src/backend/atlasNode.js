@@ -14,7 +14,7 @@ app.use(cors({ origin: "*" }));
 const mongoose = require("mongoose").MongoClient;
 let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority";
 
-app.get("/data", async (req, res) => {
+app.get("/Data", async (req, res) => {
   try {
     const result = await collections.find();
     console.log("output", result);
@@ -27,7 +27,7 @@ app.get("/data", async (req, res) => {
 
 // app.get("/Base", cors(), (req, res) => {});
 
-app.post("/data", async (req, res) => {
+app.post("/Data", async (req, res) => {
   try {
     const result = req.body;
     console.log("post result", result);

@@ -17,7 +17,7 @@ function Form() {
     e.preventDefault();
 
     const res = await axios.post(
-      "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/data",
+      "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority",
       {
         body: JSON.stringify(data),
 
