@@ -29,7 +29,6 @@ app.post("/Base", async (req, res) => {
     lastName: lastName,
     email: email,
     feedback,
-    feedback,
   };
   try {
     console.log("post result", result);

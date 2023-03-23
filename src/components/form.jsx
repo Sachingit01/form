@@ -30,10 +30,11 @@ function Form() {
       alert(e);
       console.log(e);
     }
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
+    alert("Feedback added");
     console.log(data);
 
-    const datas = await axios.get("http://localhost:8007/Base", {});
+    // const datas = await axios.get("http://localhost:8007/Base", {});
   };
   console.log(errors);
 
