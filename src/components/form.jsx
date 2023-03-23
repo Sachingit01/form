@@ -1,8 +1,5 @@
-import React, { useRef, useState } from "react";
-// import ReactDOM from "react-dom";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-// import { string } from "yup";
-// import { useRefs } from "react";
 import axios from "axios";
 import "./form.css";
 
@@ -10,10 +7,12 @@ function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [feedback, setfeedback] = useState("");
+
   const {
     register,
     handleSubmit,
-    reset,
+    // reset,
     formState: { errors },
   } = useForm();
 
@@ -24,6 +23,7 @@ function Form() {
         firstName,
         lastName,
         email,
+        feedback,
       });
       console.log(res.data);
     } catch (e) {
@@ -32,19 +32,38 @@ function Form() {
     }
     alert(JSON.stringify(data));
     console.log(data);
+   
+    const datas = await axios.get("http://localhost:8007/Base",{})
+
   };
   console.log(errors);
 
+  function Retriving(){
+    const [records,setRecord]=useState([])
+    useEffect(()=>{
+       axios.get("http://localhost:8007/Base")
+       .then(res=>{setRecord(res.data)})
+       .catch(err=>{console.log(err)})
+    },[])
+  
+  }
   return (
-    <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
-      {/* {data.map((data)=>{
-        <div key={data.id}>
-          <h3>{data.id}</h3>
-          <p>{data.firstName}</p>
-          <p>{data.lastName}</p>
-          <p>{data.email}</p>
-        </div>
-      })} */}
+    // <div>
+    // {records.map((post,i)=>{
+    //   <div key={i}>
+    //     <h3>{post.id}</h3>
+    //     <p>{post.firstName}</p>
+    //     <p>{post.lastName}</p>
+    //     <p>{post.email}</p>
+    //   </div>
+    
+    // })}
+     
+   
+   
+   <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
+      
+    
       <label>First name</label>
       <input
         type="text"
@@ -75,15 +94,28 @@ function Form() {
       />
       {errors.email && <p>This is required</p>}
 
+      <label>Feedback</label>
+
+      <textarea
+        rows="6"
+        cols="65"
+        {...register("feedback", { require: true })}
+        onChange={(e) => {
+          setfeedback(e.target.value);
+        }}
+      />
+
       <input type="submit" />
+
       <input
         style={{ display: "block", marginTop: 20 }}
         type="reset"
         value="reset "
       />
     </form>
+    // </div>
   );
 }
 
 export default Form;
-//pushparaj or vadhiraj
+

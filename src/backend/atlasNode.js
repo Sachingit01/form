@@ -14,7 +14,7 @@ app.use(cors({ origin: "*" }));
 const mongoose = require("mongoose").MongoClient;
 let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/Data";
 
-app.get("/", async (req, res) => {
+app.get("/Data", async (req, res) => {
   try {
     const result = await collections.find();
     console.log("output", result);
@@ -25,11 +25,16 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.get("/Base", cors(), (req, res) => {});
+// app.get("/Base", cors(), (req, res) => {});
 
 app.post("/Data", async (req, res) => {
-  try {
-    const result = req.body;
+  const { firstName, lastName, email } = req.body;
+  const result = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+  };
+ try {
     console.log("post result", result);
     await collections.insertMany(result);
     res.send("data stored");
@@ -41,3 +46,6 @@ app.post("/Data", async (req, res) => {
 app.listen(8007, () => {
   console.log("port connected");
 });
+
+
+

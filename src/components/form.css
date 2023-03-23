@@ -1,12 +1,13 @@
 body {
-  background: #0e101c;
+  background: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
 form {
-  max-width: 500px;
+  max-width: 400px;
+  max-height: 300px;
   margin: 0 auto;
 }
 
@@ -37,27 +38,55 @@ input {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 4px;
-  border: 1px solid white;
+  /* border-radius: 4px; */
+  /* border: 1px solid white; */
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
   padding: 10px 15px;
   margin-bottom: 10px;
   font-size: 14px;
-}
+  outline: none;
 
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(45deg, rgb(21, 0, 255) , rgb(224, 50, 224));
+  border-image-slice: 1;
+ 
+}
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  /* border-bottom: 2px solid black; */
+  background-color: transparent;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  outline: none;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(45deg, rgb(21, 0, 255) , rgb(224, 50, 224));
+  border-image-slice: 1;
+}
 label {
   line-height: 2;
   text-align: left;
   display: block;
   margin-bottom: 13px;
   margin-top: 20px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 14px;
   font-weight: 200;
 }
 
 button[type="submit"],
-input[type="submit"] {
-  background: #5626f5;
+input[type="submit"],
+input[type="reset"] {
+  
+  background: linear-gradient(45deg,rgb(21, 0, 255) , rgb(224, 50, 224));
+  border-image-slice: 1;
+  border-radius: 10px;
   color: white;
   text-transform: uppercase;
   border: none;
@@ -75,7 +104,8 @@ input[type="submit"]:hover {
 
 button[type="submit"]:active,
 input[type="button"]:active,
-input[type="submit"]:active {
+input[type="submit"]:active,
+input[type="reset"]:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;

@@ -14,7 +14,7 @@ app.use(cors({ origin: "*" }));
 const mongoose = require("mongoose").MongoClient;
 let url = "mongodb://localhost:27017/Base";
 
-app.get("/Base", cors(), async (req, res) => {
+app.get("/Base", async (req, res) => {
   const result = await store.find();
   console.log("output", result);
   res.send(result);
@@ -23,14 +23,14 @@ app.get("/Base", cors(), async (req, res) => {
 // app.get("/Base", cors(), (req, res) => {});
 
 app.post("/Base", async (req, res) => {
-  const { firstName, lastName, email } = req.body;
+  const { firstName, lastName, email,feedback } = req.body;
   const result = {
     firstName: firstName,
     lastName: lastName,
     email: email,
+    feedback,feedback
   };
   try {
-    // const result = req.body;
     console.log("post result", result);
     await store.insertMany(result);
     res.send("data stored");

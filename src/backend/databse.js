@@ -20,14 +20,10 @@ const NewSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
-  // gender: {
-  //   type: Boolean,
-  //   required: true,
-  // },
-  // feedback: {
-  //   type: String,
-  //   required: true,
-  // },
+ 
+  feedback: {
+    type: String
+  },
 });
 
 const store = new mongoose.model("store", NewSchema);
