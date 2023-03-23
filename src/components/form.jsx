@@ -32,20 +32,23 @@ function Form() {
     }
     alert(JSON.stringify(data));
     console.log(data);
-   
-    const datas = await axios.get("http://localhost:8007/Base",{})
 
+    const datas = await axios.get("http://localhost:8007/Base", {});
   };
   console.log(errors);
 
-  function Retriving(){
-    const [records,setRecord]=useState([])
-    useEffect(()=>{
-       axios.get("http://localhost:8007/Base")
-       .then(res=>{setRecord(res.data)})
-       .catch(err=>{console.log(err)})
-    },[])
-  
+  function Retriving() {
+    const [records, setRecord] = useState([]);
+    useEffect(() => {
+      axios
+        .get("http://localhost:8007/Base")
+        .then((res) => {
+          setRecord(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
   }
   return (
     // <div>
@@ -56,66 +59,64 @@ function Form() {
     //     <p>{post.lastName}</p>
     //     <p>{post.email}</p>
     //   </div>
-    
+
     // })}
-     
-   
-   
-   <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
-      
-    
-      <label>First name</label>
-      <input
-        type="text"
-        {...register("firstName", { required: true })}
-        onChange={(e) => {
-          setFirstName(e.target.value);
-        }}
-      />
-      {errors.firstName && <p>This is required</p>}
 
-      <label>Last name</label>
-      <input
-        type="text"
-        {...register("lastName", { required: true })}
-        onChange={(e) => {
-          setLastName(e.target.value);
-        }}
-      />
-      {errors.lastName && <p>This is required</p>}
+    <div>
+      <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
+        <h1>Feedback</h1>
 
-      <label>Email</label>
-      <input
-        type="email"
-        {...register("email", { required: true })}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      {errors.email && <p>This is required</p>}
+        <label id="label1">First name</label>
+        <input
+          type="text"
+          {...register("firstName", { required: true })}
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+        />
+        {errors.firstName && <p>This is required</p>}
 
-      <label>Feedback</label>
+        <label id="label2">Last name</label>
+        <input
+          type="text"
+          {...register("lastName", { required: true })}
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+        />
+        {errors.lastName && <p>This is required</p>}
 
-      <textarea
-        rows="6"
-        cols="65"
-        {...register("feedback", { require: true })}
-        onChange={(e) => {
-          setfeedback(e.target.value);
-        }}
-      />
+        <label id="label3">Email</label>
+        <input
+          type="email"
+          {...register("email", { required: true })}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        {errors.email && <p>This is required</p>}
 
-      <input type="submit" />
+        <label>Feedback</label>
 
-      <input
-        style={{ display: "block", marginTop: 20 }}
-        type="reset"
-        value="reset "
-      />
-    </form>
-    // </div>
+        <textarea
+          rows="2"
+          cols="65"
+          {...register("feedback", { require: true })}
+          onChange={(e) => {
+            setfeedback(e.target.value);
+          }}
+        />
+
+        <input type="submit" />
+
+        <input
+          style={{ display: "block", marginTop: 20 }}
+          type="reset"
+          value="reset "
+        />
+      </form>
+    </div>
   );
 }
 
 export default Form;
-

@@ -23,12 +23,13 @@ app.get("/Base", async (req, res) => {
 // app.get("/Base", cors(), (req, res) => {});
 
 app.post("/Base", async (req, res) => {
-  const { firstName, lastName, email,feedback } = req.body;
+  const { firstName, lastName, email, feedback } = req.body;
   const result = {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    feedback,feedback
+    feedback,
+    feedback,
   };
   try {
     console.log("post result", result);

@@ -46,21 +46,33 @@ function Form() {
         </div>
       })} */}
       <label>First name</label>
-      <input type="text" {...register("firstName", { required: "true" })} onChange={(e)=>{
-setFirstName(e.target.value);
-      }} />
+      <input
+        type="text"
+        {...register("firstName", { required: "true" })}
+        onChange={(e) => {
+          setFirstName(e.target.value);
+        }}
+      />
       {errors.firstName && <p>This is required</p>}
 
       <label>Last name</label>
-      <input type="text" {...register("lastName", { required: true })} onChange={(e)=>{
-        setLastName(e.target.value)
-      }} />
+      <input
+        type="text"
+        {...register("lastName", { required: true })}
+        onChange={(e) => {
+          setLastName(e.target.value);
+        }}
+      />
       {errors.lastName && <p>This is required</p>}
 
       <label>Email</label>
-      <input type="email" {...register("Email", { required: true })} onChange={(e)=>{
-        setEmail(e.target.value)
-      }} />
+      <input
+        type="email"
+        {...register("Email", { required: true })}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
       {errors.Email && <p>This is required</p>}
       <input type="submit" />
       <input

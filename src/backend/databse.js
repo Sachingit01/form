@@ -20,9 +20,9 @@ const NewSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
- 
+
   feedback: {
-    type: String
+    type: String,
   },
 });
 

@@ -12,7 +12,8 @@ app.use(express.static("public"));
 app.use(cors({ origin: "*" }));
 
 const mongoose = require("mongoose").MongoClient;
-let url = "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/Data";
+let url =
+  "mongodb+srv://sachinsatheesh:974747635035@cluster.ik2a6rc.mongodb.net/?retryWrites=true&w=majority/Data";
 
 app.get("/Data", async (req, res) => {
   try {
@@ -34,7 +35,7 @@ app.post("/Data", async (req, res) => {
     lastName: lastName,
     email: email,
   };
- try {
+  try {
     console.log("post result", result);
     await collections.insertMany(result);
     res.send("data stored");
@@ -46,6 +47,3 @@ app.post("/Data", async (req, res) => {
 app.listen(8007, () => {
   console.log("port connected");
 });
-
-
-

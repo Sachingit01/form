@@ -20,7 +20,6 @@ function Form() {
       "https://formdata-ea0fb-default-rtdb.firebaseio.com/.json",
       {
         body: JSON.stringify(data),
-        
 
         headers: {
           "content-Type": "application/json",
@@ -28,9 +27,9 @@ function Form() {
       }
     );
     console.log(data);
-    alert(JSON.stringify(data))
-  }
-  
+    alert(JSON.stringify(data));
+  };
+
   return (
     <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
       {/* {data.map((data)=>{
