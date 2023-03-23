@@ -1,8 +1,5 @@
 import React, { useRef, useState } from "react";
-// import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
-// import { string } from "yup";
-// import { useRefs } from "react";
 import axios from "axios";
 import "./form.css";
 function Form() {
@@ -32,14 +29,6 @@ function Form() {
 
   return (
     <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
-      {/* {data.map((data)=>{
-        <div key={data.id}>
-          <h3>{data.id}</h3>
-          <p>{data.firstName}</p>
-          <p>{data.lastName}</p>
-          <p>{data.email}</p>
-        </div>
-      })} */}
       <label>First name</label>
       <input type="text" {...register("firstName", { required: "true" })} />
       {errors.firstName && <p>This is required</p>}

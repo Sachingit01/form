@@ -33,36 +33,10 @@ function Form() {
     // alert(JSON.stringify(data));
     alert("Feedback added");
     console.log(data);
-
-    // const datas = await axios.get("http://localhost:8007/Base", {});
   };
   console.log(errors);
 
-  function Retriving() {
-    const [records, setRecord] = useState([]);
-    useEffect(() => {
-      axios
-        .get("http://localhost:8007/Base")
-        .then((res) => {
-          setRecord(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
-  }
   return (
-    // <div>
-    // {records.map((post,i)=>{
-    //   <div key={i}>
-    //     <h3>{post.id}</h3>
-    //     <p>{post.firstName}</p>
-    //     <p>{post.lastName}</p>
-    //     <p>{post.email}</p>
-    //   </div>
-
-    // })}
-
     <div>
       <form action="/" method="POST" onSubmit={handleSubmit(onSubmit)}>
         <h1>Feedback</h1>
