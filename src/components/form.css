@@ -4,7 +4,7 @@ body {
   background: linear-gradient(
     90deg,
     rgb(93, 26, 195) 37%,
-    rgb(255, 214, 51) 100%
+    rgb(255, 95, 51) 100%
   );
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -22,6 +22,7 @@ form {
   min-height: 340px;
   margin: 0 auto;
   background: #ffffff;
+
   /* opacity: 10px; */
   padding: 17px;
   border-radius: 15px;
